@@ -90,42 +90,10 @@ body::after {
    =========================== */
 main.terminal {
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 48px;
-  max-width: 640px;
+  padding: 15vh 48px 120px;
+  max-width: 680px;
   position: relative;
   z-index: 1;
-}
-
-.prompt {
-  font-family: var(--font-mono);
-  font-size: 14px;
-  color: var(--muted);
-  margin-bottom: 6px;
-  cursor: pointer;
-  user-select: none;
-  width: fit-content;
-}
-
-.prompt .tilde { color: var(--accent2); }
-.prompt .dollar { color: var(--accent); margin-left: 4px; }
-
-.cursor-block {
-  display: inline-block;
-  margin-left: 2px;
-  color: var(--accent);
-  animation: blink 1s steps(1) infinite;
-}
-
-.hint {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  color: var(--muted);
-  opacity: 0;
-  transition: opacity 0.4s;
-  margin-bottom: 26px;
 }
 
 h1 {
@@ -162,57 +130,108 @@ h1 .sep {
   animation: fadeUp 0.6s 0.4s forwards;
 }
 
-.egg {
-  margin-top: 20px;
+.tip {
   font-family: var(--font-mono);
-  font-size: 13px;
-  line-height: 1.9;
-  max-width: 500px;
-}
-
-.egg .line {
-  opacity: 0;
-  transition: opacity 0.3s;
-}
-
-.egg .cmd { color: var(--accent); }
-.egg .out { color: var(--muted); }
-
-.links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  margin-top: 36px;
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 22px;
   opacity: 0;
   animation: fadeUp 0.6s 0.55s forwards;
 }
 
-.links a {
+.cmd-hl { color: var(--accent); }
+
+/* ---- Output history ---- */
+.term-output {
+  margin-top: 28px;
   font-family: var(--font-mono);
   font-size: 13px;
+  line-height: 1.9;
+}
+
+.term-line,
+.term-block {
+  color: var(--muted);
+  word-break: break-word;
+}
+
+.term-block { white-space: pre-wrap; }
+
+.term-line.echo {
+  color: var(--text);
+  margin-top: 14px;
+}
+
+.echo-prompt { color: var(--accent2); margin-right: 6px; }
+
+.term-line a,
+.term-block a {
+  color: var(--text);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--muted);
+}
+.term-line a:hover,
+.term-block a:hover { color: var(--accent); border-color: var(--accent); }
+
+.idx { color: var(--accent2); }
+.proj-name { color: var(--text); font-weight: 500; }
+.proj-zh { color: var(--muted); }
+.proj-stack { color: var(--accent2); }
+
+/* ---- Live input line ---- */
+.term-input-line {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 18px;
+  font-family: var(--font-mono);
+  font-size: 14px;
+}
+
+.prompt-label {
+  color: var(--muted);
+  white-space: nowrap;
+}
+.prompt-label .tilde { color: var(--accent2); }
+.prompt-label .dollar { color: var(--accent); margin-left: 4px; }
+
+.cmd-input {
+  flex: 1;
+  min-width: 0;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--text);
+  font-family: var(--font-mono);
+  font-size: 14px;
+  caret-color: var(--accent);
+  cursor: text;
+}
+
+footer {
+  position: relative;
+  margin-top: 60px;
+  padding: 24px 48px 40px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--muted);
+  opacity: 0.6;
+  z-index: 1;
+}
+
+.quick-links { display: flex; gap: 16px; }
+.quick-links a {
   color: var(--muted);
   text-decoration: none;
   transition: color 0.2s;
 }
-
-.links a::before {
-  content: './';
-  color: var(--accent2);
-  opacity: 0.6;
-}
-
-.links a:hover { color: var(--accent); }
-.links a:hover::before { opacity: 1; color: var(--accent); }
-
-footer {
-  position: fixed;
-  bottom: 24px; left: 48px;
-  font-family: var(--font-mono);
-  font-size: 11px;
-  color: var(--muted);
-  opacity: 0.5;
-  z-index: 1;
-}
+.quick-links a::before { content: './'; opacity: 0.6; }
+.quick-links a:hover { color: var(--accent); }
 
 /* ===========================
    Animations
@@ -231,6 +250,6 @@ footer {
    Responsive
    =========================== */
 @media (max-width: 640px) {
-  main.terminal { padding: 24px; }
-  footer { left: 24px; bottom: 16px; font-size: 10px; }
+  main.terminal { padding: 80px 24px 100px; }
+  footer { padding: 20px 24px 32px; font-size: 10px; }
 }

@@ -13,25 +13,30 @@
 <div class="cursor" id="cursor"></div>
 <div class="cursor-ring" id="cursorRing"></div>
 
-<main class="terminal">
-  <div class="prompt" id="prompt"><span id="promptText"></span><span class="cursor-block">█</span></div>
-  <div class="hint" id="hint">click to run whoami</div>
+<main class="terminal" id="terminal">
+  <div class="banner">
+    <h1>薛閔容 <span class="sep">·</span> Min-Jung Hsueh</h1>
+    <p class="role">Information Management Student · Cloud &amp; Generative AI</p>
+    <p class="stack">Python · SQL · OpenAI API · AWS · GCP · Node.js</p>
+    <p class="tip">type <span class="cmd-hl">help</span> to see available commands</p>
+  </div>
 
-  <h1>薛閔容 <span class="sep">·</span> Min-Jung Hsueh</h1>
-  <p class="role">Information Management Student · Cloud &amp; Generative AI</p>
-  <p class="stack">Python · SQL · OpenAI API · AWS · GCP · Node.js</p>
+  <div class="term-output" id="output"></div>
 
-  <div class="egg" id="egg"></div>
-
-  <div class="links">
-    <a href="https://github.com/Peter930427" target="_blank">github</a>
-    <a href="https://linkedin.com/in/閔容-薛-466235297" target="_blank">linkedin</a>
-    <a href="https://www.instagram.com/xue_minrong?igsh=MWdpNHRsYzd5bDY5bA%3D%3D&utm_source=qr" target="_blank">instagram</a>
-    <a href="mailto:skrmeaning@gmail.com">email</a>
+  <div class="term-input-line">
+    <label class="prompt-label" for="cmdInput">me@minjung <span class="tilde">~</span> <span class="dollar">$</span></label>
+    <input id="cmdInput" class="cmd-input" type="text" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" aria-label="terminal command input">
   </div>
 </main>
 
-<footer>© 2026 薛閔容 · Min-Jung Hsueh</footer>
+<footer>
+  <span>© 2026 薛閔容 · Min-Jung Hsueh</span>
+  <span class="quick-links">
+    <a href="https://github.com/Peter930427" target="_blank">github</a>
+    <a href="https://linkedin.com/in/閔容-薛-466235297" target="_blank">linkedin</a>
+    <a href="mailto:skrmeaning@gmail.com">email</a>
+  </span>
+</footer>
 
 <script src="js/main.js"></script>
 </body>
